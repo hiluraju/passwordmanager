@@ -30,7 +30,7 @@ class Home extends CI_Controller {
 		else
 		{
 			$username = $this->input->post('username');
-			$password = $this->input->post('password');
+			$password = md5($this->input->post('password'));
 			$userid   = $this->login_model->logincheck($username,$password);
 
 			if($userid)
