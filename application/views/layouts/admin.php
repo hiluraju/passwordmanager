@@ -63,7 +63,7 @@ if($user){
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small wei black"><?php echo ucfirst($user['user']);?></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo ucfirst($user['user']);?></span>
                 <img class="img-profile rounded-circle" src="<?php echo base_url();?>lib/img/user.png">
               </a>
               <!-- Dropdown - User Information -->
@@ -244,7 +244,7 @@ if($user){
 
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog black" role="document">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>

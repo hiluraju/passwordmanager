@@ -60,4 +60,43 @@ class Home extends CI_Controller {
 		$this->load->view('admin');
 		$this->load->view('common/footer');
 	}
+
+	public function department()
+	{
+
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/department');
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}
+		else
+		{
+			redirect('home/index'); 
+		}	
+	}
+
+	public function addPassword()
+	{
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/addpassword');
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}	
+		else
+		{
+			redirect('home/index'); 
+		}
+	}
 }

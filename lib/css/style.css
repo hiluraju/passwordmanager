@@ -6,6 +6,10 @@
 {
 	color: red !important;
 }
+.black
+{
+	color: black !important;
+}
 .fcb
 {
 	color: black !important;
@@ -17,4 +21,12 @@
 .w10
 {
 	width: 10% !important; 
+}
+.right
+{
+	float: right !important;
+}
+.ml10
+{
+	margin-left:10px !important;
 }
