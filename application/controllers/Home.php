@@ -41,7 +41,7 @@ class Home extends CI_Controller {
 			}
 			else
 			{
-				$loginerror = array("errors" => "<p> Login Failed </p>");
+				$loginerror = array("errors" => "<p> Incorrect Username or Password </p>");
 				$this->session->set_flashdata($loginerror);
 				redirect('home/index');
 			}
@@ -56,9 +56,26 @@ class Home extends CI_Controller {
 
 	public function admin()
 	{
-		$this->load->view('common/header');
-		$this->load->view('admin');
-		$this->load->view('common/footer');
+		// $this->load->view('common/header');
+		// $this->load->view('admin');
+		// $this->load->view('common/footer');
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/passwords');
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}
+		else
+		{
+			$loginerror = array("errors" => "<p> Login Failed </p>");
+			$this->session->set_flashdata($loginerror);
+			redirect('home/index'); 
+		}	
 	}
 
 	public function department()
@@ -77,6 +94,8 @@ class Home extends CI_Controller {
 		}
 		else
 		{
+			$loginerror = array("errors" => "<p> Login Failed </p>");
+			$this->session->set_flashdata($loginerror);
 			redirect('home/index'); 
 		}	
 	}
@@ -91,6 +110,25 @@ class Home extends CI_Controller {
 			$this->load->view('layouts/nav',$data);
 			$this->load->view('layouts/topbar');
 			$this->load->view('layouts/addpassword');
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}	
+		else
+		{
+			redirect('home/index'); 
+		}
+	}
+
+	public function addDepartment()
+	{
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/adddepartment');
 			$this->load->view('layouts/bottom');
 			$this->load->view('common/footer');
 		}	

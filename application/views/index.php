@@ -13,7 +13,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4"><b>PASSWORD <img class="w10" src="<?php echo base_url();?>lib/img/lock.png" alt="lock"> MANAGER</b> </h1>
                   </div>
-                  <div class="text-center red">
+                  <div class="text-center red wei">
                     <?php if($this->session->flashdata('errors')): ?>
                     <?php echo $this->session->flashdata('errors'); ?>
                     <?php endif; ?>
