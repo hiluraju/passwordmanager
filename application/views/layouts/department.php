@@ -4,7 +4,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <a class="nav-link" href="<?php echo base_url();?>home/addDepartment">
+              <a class="nav-link" href="<?php echo base_url();?>home/adddepartment">
               <button class="btn btn-danger right">Add<i class="fas fa-user-plus ml10"></i></button>
               </a>
             </div>

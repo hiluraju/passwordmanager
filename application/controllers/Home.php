@@ -100,7 +100,7 @@ class Home extends CI_Controller {
 		}	
 	}
 
-	public function addPassword()
+	public function addpassword()
 	{
 		$data['user'] = $this->session->userdata('user');
 		if($data['user'])
@@ -119,7 +119,7 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function addDepartment()
+	public function adddepartment()
 	{
 		$data['user'] = $this->session->userdata('user');
 		if($data['user'])
