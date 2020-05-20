@@ -1,7 +1,4 @@
- <style type="text/css">
-   
 
- </style>
  <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -23,9 +20,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Department-1</td>
+                    <?php
+                      foreach ($departments as $department) 
+                      {
+                      ?>
+                    <tr>                      
+                      <td><?php echo $department['id']; ?></td>
+                      <td><?php echo $department['name']; ?></td>
                       <td>
                         <div class="btn-group" role="group">
                           <div class="col-md-6 custom">
@@ -37,34 +38,7 @@
                       </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Department-2</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Department-3</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr> 
+                  <?php } ?>
                   </tbody>
                 </table>
               </div>

@@ -16,4 +16,20 @@ class Login_model extends CI_Model
 			return false;
 		}
 	}
+
+	public function getdepartment($where)
+	{
+        $this->db->select("id,name");
+		$this->db->where($where);
+		$query = $this->db->get('departments');
+		if($query->num_rows() > 0) 
+		{
+			return $result = $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
+

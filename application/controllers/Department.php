@@ -6,6 +6,10 @@ class Department extends CI_Controller {
 	public function __construct()
     {
 		parent::__construct();
+		if(!$this->session->userdata('user'))
+		{
+			redirect('home/index');
+		}
 		$this->load->model('department_model');
     }
 
@@ -37,7 +41,6 @@ class Department extends CI_Controller {
 				$loginerror = "<p> Department Insertion Failed! </p>";
 				$this->session->set_flashdata($loginerror);
 				redirect('home/adddepartment');
-
 			}
 		}
 	}

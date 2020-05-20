@@ -79,16 +79,17 @@ class Home extends CI_Controller {
 	}
 
 	public function department()
-	{
-
+	{		
 		$data['user'] = $this->session->userdata('user');
 		if($data['user'])
 		{
+			$where['status'] 	  =  "1";
+			$data['departments']  = $this->login_model->getdepartment($where);
 			$this->load->view('common/header');
 			$this->load->view('layouts/topbar');
 			$this->load->view('layouts/nav',$data);
 			$this->load->view('layouts/topbar');
-			$this->load->view('layouts/department');
+			$this->load->view('layouts/department',$data);
 			$this->load->view('layouts/bottom');
 			$this->load->view('common/footer');
 		}
