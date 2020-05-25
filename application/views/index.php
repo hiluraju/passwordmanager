@@ -23,7 +23,8 @@
                     <div class="form-group">
                     <?php $data = array("class"       => "form-control form-control-user",
                                         "name"        => "username", 
-                                        "id"          => "username", 
+                                        "id"          => "username",
+                                        "value"       => set_value("username"), 
                                         "placeholder" => "Enter Username"); ?>
                       <?php echo form_input($data);?>
                     </div>
