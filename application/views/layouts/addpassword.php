@@ -2,39 +2,95 @@
 		<div class="col-sm-3 col-md-3 col-xs-3"></div>
 		<div class="col-sm-6 col-md-6 col-xs-6">
 			<h1 class="h4 black mb-4 wei text-center">ADD DETAILS</h1>
-			<form class="user">
+				<div class="red wei">
+	                <?php if($this->session->flashdata('errors')): ?>
+	                <?php echo $this->session->flashdata('errors'); ?>
+	                <?php endif; ?>
+	                <?php if($this->session->flashdata('departmentfailed')): ?>
+	                <?php echo $this->session->flashdata('departmentfailed'); ?>
+	                <?php endif; ?>
+	            </div>
+	            <div class="green wei">
+	                <?php if($this->session->flashdata('departmentsuccess')): ?>
+	                <?php echo $this->session->flashdata('departmentsuccess'); ?>
+	                <?php endif; ?>
+	            </div>
+				<?php $attributes = array("class"=>"user","id"=>"passwordform");?>
+                <?php echo form_open("password/addpassword",$attributes)?>
 				<div class="form-group">
-					<label class="black wei" for="email">Username</label>
-					<input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Username">
+					<label class="black wei">Username</label>
+					<?php $data = array("class"       => "form-control form-control-user",
+                                        "name"        => "username", 
+                                        "id"          => "username", 
+                                        "value"       => set_value('username'), 
+                                        "placeholder" => "Username"); ?>
+                    <?php echo form_input($data);?>
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">Email Address</label>
-					<input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+					<?php $data = array("class"       => "form-control form-control-user",
+                                        "name"        => "email", 
+                                        "id"          => "email", 
+                                        "type"        => "email", 
+                                        "value"       => set_value('email'), 
+                                        "placeholder" => "Email Address"); ?>
+                    <?php echo form_input($data);?>
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">Password</label>
-					<input type="password" class="form-control form-control-user" id="exampleLastName" placeholder="Password">
+					<?php $data = array("class"       => "form-control form-control-user",
+                                        "name"        => "password", 
+                                        "id"          => "password", 
+                                        "type"        => "password",
+                                        "value"       => set_value('password'), 
+                                        "placeholder" => "Password"); ?>
+                    <?php echo form_input($data);?>
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">Erp Username</label>
-					<input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Erp Username">
+					<?php $data = array("class"       => "form-control form-control-user",
+                                        "name"        => "erpusername", 
+                                        "id"          => "erpusername",
+                                        "value"       => set_value('erpusername'), 
+                                        "placeholder" => "Erp Username"); ?>
+                    <?php echo form_input($data);?>
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">Erp Password</label>
-					<input type="password" class="form-control form-control-user" id="exampleLastName" placeholder="Erp Password">
+					<?php $data = array("class"       => "form-control form-control-user",
+                                        "name"        => "erppassword", 
+                                        "id"          => "erppassword", 
+                                        "type"        => "password", 
+                                        "value"       => set_value('erppassword'),
+                                        "placeholder" => "Erp Password"); ?>
+                    <?php echo form_input($data);?>
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">App Username</label>
-					<input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="App Username">
+					<?php $data = array("class"       => "form-control form-control-user",
+                                        "name"        => "appusername", 
+                                        "id"          => "appusername", 
+                                        "value"       => set_value('appusername'),
+                                        "placeholder" => "App Username"); ?>
+                    <?php echo form_input($data);?>
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">App Password</label>
-					<input type="password" class="form-control form-control-user" id="exampleLastName" placeholder="App Password">
+					<?php $data = array("class"       => "form-control form-control-user",
+                                        "name"        => "apppassword", 
+                                        "id"          => "apppassword", 
+                                        "type"        => "password", 
+                                        "value"       => set_value('apppassword'),
+                                        "placeholder" => "App Password"); ?>
+                    <?php echo form_input($data);?>
 				</div>
 				<div class="form-group">
-					<label class="black wei" for="email">Department</label>
-					<input type="password" class="form-control form-control-user" id="exampleLastName" placeholder="Department">
+					<label class="black wei">Department</label>
+					<?php 
+						echo form_dropdown('departments', $departments,'','class="form-control" id="departments"');
+					?>
 				</div>
+
 				<div class="row">
 					<div class="col-sm-4 col-md-4 col-xs-4"></div>
 					<div class="col-sm-3 col-md-3 col-xs-3"> 
@@ -43,6 +99,7 @@
 				</div>	
 				</div>
 				<hr>
-			</form>
+			<?php echo form_close();?>
 	</div>
 <!-- /.container-fluid -->
+

@@ -103,6 +103,9 @@ class Home extends CI_Controller {
 
 	public function addpassword()
 	{
+		$where['status'] 	  =  "1";
+		$departments  		  = $this->login_model->getdepartment($where,1);
+		$data['departments']  = array_column($departments, 'name');
 		$data['user'] = $this->session->userdata('user');
 		if($data['user'])
 		{
@@ -110,7 +113,7 @@ class Home extends CI_Controller {
 			$this->load->view('layouts/topbar');
 			$this->load->view('layouts/nav',$data);
 			$this->load->view('layouts/topbar');
-			$this->load->view('layouts/addpassword');
+			$this->load->view('layouts/addpassword',$data);
 			$this->load->view('layouts/bottom');
 			$this->load->view('common/footer');
 		}	

@@ -17,9 +17,16 @@ class Login_model extends CI_Model
 		}
 	}
 
-	public function getdepartment($where)
+	public function getdepartment($where,$departmentname="")
 	{
-        $this->db->select("id,name");
+		if($departmentname)
+		{
+        	$this->db->select("name");
+		}
+		else
+		{
+        	$this->db->select("id,name");			
+		}
 		$this->db->where($where);
 		$query = $this->db->get('departments');
 		if($query->num_rows() > 0) 
