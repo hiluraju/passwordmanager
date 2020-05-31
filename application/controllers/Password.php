@@ -10,15 +10,15 @@ class Password extends CI_Controller {
 		{
 			redirect('home/index');
 		}
-		$this->load->model('department_model');
+		$this->load->model('password_model');
     }
 
 	
 	public function addpassword()
 	{
-		echo "<pre>"; print_r($_POST); die;
+		// echo "<pre>"; print_r($_POST); die;
 		$this->form_validation->set_rules('username','Username','trim|required');	
-		$this->form_validation->set_rules('email','Email Address','trim|required|email');	
+		$this->form_validation->set_rules('email','Email Address','trim|required');	
 		$this->form_validation->set_rules('password','Password','trim|required');	
 		$this->form_validation->set_rules('erpusername','Erp Username','trim|required');	
 		$this->form_validation->set_rules('erppassword','Erp password','trim|required');	
@@ -34,22 +34,40 @@ class Password extends CI_Controller {
 		}
 		else
 		{
-			echo "success "; die;
-			$department    = $this->input->post('department');
-			$insertdata    = array("name" => $department,"status" => 1);
-			$adddepartment = $this->department_model->adddepartment($insertdata);
+			$this->load->library('encrypt');
+			$username      	= $this->encrypt->encode($this->input->post('username'));
+			$email    		= $this->encrypt->encode($this->input->post('email'));
+			$password    	= $this->encrypt->encode($this->input->post('password'));
+			$erpusername    = $this->encrypt->encode($this->input->post('erpusername'));
+			$erppassword    = $this->encrypt->encode($this->input->post('erppassword'));
+			$appusername    = $this->encrypt->encode($this->input->post('appusername'));
+			$apppassword    = $this->encrypt->encode($this->input->post('apppassword'));
+			$departments    = $this->input->post('departments');
+			$date           = date('Y-m-d');
 
-			if($adddepartment)
+			$insertdata    = array( 'username'    => $username,
+									'email'       => $email,
+									'password'    => $password,
+									'erpusername' => $erpusername,
+									'erppassword' => $erppassword,
+									'appusername' => $appusername,
+									'apppassword' => $apppassword,
+									'departments' => $departments,
+									'date' 		  => $date);
+
+			$addpasswords = $this->password_model->addpasswords($insertdata);
+
+			if($addpasswords)
 			{
-				$departmentsuccess = "<p> Department Inserted Successfully </p>";
-				$this->session->set_flashdata('departmentsuccess',$departmentsuccess);
-				redirect('home/adddepartment');
+				$passwordsuccess = "<p> Details Inserted Successfully </p>";
+				$this->session->set_flashdata('passwordsuccess',$passwordsuccess);
+				redirect('home/addpassword');
 			}
 			else
 			{
-				$departmentfailed = "<p> Department Insertion Failed! </p>";
-				$this->session->set_flashdata('departmentfailed',$departmentfailed);
-				redirect('home/adddepartment');
+				$passwordfailed = "<p> Details Insertion Failed! </p>";
+				$this->session->set_flashdata('passwordfailed',$passwordfailed);
+				redirect('home/addpassword');
 			}
 		}
 	}

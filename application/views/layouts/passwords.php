@@ -1,7 +1,3 @@
-<?php
-if($user)
-{
-?>  
 <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -29,186 +25,32 @@ if($user)
                     </tr>
                   </thead>
                   <tbody>
+                    <?php foreach($passwords as $passwords){ ?>
                     <tr>
-                      <td>Username-1</td>
-                      <td>Email Address-1</td>
-                      <td>Password-1</td>
-                      <td>Erp Username-1</td>
-                      <td>Erp Password-1</td>
-                      <td>App Username-1</td>
-                      <td>App Password-1</td>
-                      <td>Department-1</td>
+                      <td><?php echo $this->encrypt->decode($passwords['username']); ?></td>
+                      <td><?php echo $this->encrypt->decode($passwords['email']); ?></td>
+                      <td><?php echo $this->encrypt->decode($passwords['password']); ?></td>
+                      <td><?php echo $this->encrypt->decode($passwords['erpusername']); ?></td>
+                      <td><?php echo $this->encrypt->decode($passwords['erppassword']); ?></td>
+                      <td><?php echo $this->encrypt->decode($passwords['appusername']); ?></td>
+                      <td><?php echo $this->encrypt->decode($passwords['apppassword']); ?></td>
+                      <td><?php echo $passwords['departments']; ?></td>
                       <td>
                         <div class="btn-group" role="group">
                           <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
+                              <a href="<?php echo base_url();?>Password/Editpassword/<?php echo $passwords['id']; ?>">
+                                <button type="button" class="btn btn-sm btn-primary">Edit</button>        
+                              </a>
                           </div>
                           <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                            <a href="<?php echo base_url();?>Password/Deletepassword/<?php echo $passwords['id']; ?>">
+                              <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                            </a>
                           </div>
                       </div>
                       </td>
                     </tr>
-                    <tr>
-                      <td>Username</td>
-                      <td>Email Address</td>
-                      <td>Password</td>
-                      <td>Erp Username</td>
-                      <td>Erp Password</td>
-                      <td>App Username</td>
-                      <td>App Password</td>
-                      <td>Department</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                      <tr>
-                      <td>Username</td>
-                      <td>Email Address</td>
-                      <td>Password</td>
-                      <td>Erp Username</td>
-                      <td>Erp Password</td>
-                      <td>App Username</td>
-                      <td>App Password</td>
-                      <td>Department</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Username</td>
-                      <td>Email Address</td>
-                      <td>Password</td>
-                      <td>Erp Username</td>
-                      <td>Erp Password</td>
-                      <td>App Username</td>
-                      <td>App Password</td>
-                      <td>Department</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Username</td>
-                      <td>Email Address</td>
-                      <td>Password</td>
-                      <td>Erp Username</td>
-                      <td>Erp Password</td>
-                      <td>App Username</td>
-                      <td>App Password</td>
-                      <td>Department</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Username</td>
-                      <td>Email Address</td>
-                      <td>Password</td>
-                      <td>Erp Username</td>
-                      <td>Erp Password</td>
-                      <td>App Username</td>
-                      <td>App Password</td>
-                      <td>Department</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Username</td>
-                      <td>Email Address</td>
-                      <td>Password</td>
-                      <td>Erp Username</td>
-                      <td>Erp Password</td>
-                      <td>App Username</td>
-                      <td>App Password</td>
-                      <td>Department</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Username</td>
-                      <td>Email Address</td>
-                      <td>Password</td>
-                      <td>Erp Username</td>
-                      <td>Erp Password</td>
-                      <td>App Username</td>
-                      <td>App Password</td>
-                      <td>Department</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Username</td>
-                      <td>Email Address</td>
-                      <td>Password</td>
-                      <td>Erp Username</td>
-                      <td>Erp Password</td>
-                      <td>App Username</td>
-                      <td>App Password</td>
-                      <td>Department</td>
-                      <td>
-                        <div class="btn-group" role="group">
-                          <div class="col-md-6 custom">
-                              <button type="button" class="btn btn-sm btn-primary">Edit</button>        
-                          </div>
-                          <div class="col-md-6 custom">
-                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                          </div>
-                      </div>
-                      </td>
-                    </tr>
+                  <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -217,7 +59,3 @@ if($user)
 
         </div>
         <!-- /.container-fluid -->
-
-<?php 
-}
-?>

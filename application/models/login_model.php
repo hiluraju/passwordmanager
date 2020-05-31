@@ -38,5 +38,21 @@ class Login_model extends CI_Model
 			return false;
 		}
 	}
+
+
+	public function getpasswords()
+	{
+		
+		$this->db->select("id,username,email,password,erpusername,erppassword,appusername,apppassword,departments");			
+		$query = $this->db->get('passwords');
+		if($query->num_rows() > 0) 
+		{
+			return $result = $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 

@@ -11,6 +11,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		// $this->load->library('encrypt');
 		$this->load->view('common/header');
 		$this->load->view('index');
 		$this->load->view('common/footer');
@@ -56,9 +57,12 @@ class Home extends CI_Controller {
 
 	public function admin()
 	{
-		// $this->load->view('common/header');
-		// $this->load->view('admin');
-		// $this->load->view('common/footer');
+		$this->load->library('encrypt');
+		$passwordsarray  = [];
+		$passwords  = $this->login_model->getpasswords();
+		$data['passwords']  = $this->login_model->getpasswords();
+
+
 		$data['user'] = $this->session->userdata('user');
 		if($data['user'])
 		{
@@ -66,7 +70,7 @@ class Home extends CI_Controller {
 			$this->load->view('layouts/topbar');
 			$this->load->view('layouts/nav',$data);
 			$this->load->view('layouts/topbar');
-			$this->load->view('layouts/passwords');
+			$this->load->view('layouts/passwords',$data);
 			$this->load->view('layouts/bottom');
 			$this->load->view('common/footer');
 		}
