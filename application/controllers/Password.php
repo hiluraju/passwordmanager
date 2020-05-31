@@ -16,7 +16,7 @@ class Password extends CI_Controller {
 	
 	public function addpassword()
 	{
-		// echo "<pre>"; print_r($_POST); die;
+		echo "<pre>"; print_r($_POST); die;
 		$this->form_validation->set_rules('username','Username','trim|required');	
 		$this->form_validation->set_rules('email','Email Address','trim|required|email');	
 		$this->form_validation->set_rules('password','Password','trim|required');	

@@ -103,9 +103,17 @@ class Home extends CI_Controller {
 
 	public function addpassword()
 	{
-		$where['status'] 	  =  "1";
-		$departments  		  = $this->login_model->getdepartment($where,1);
-		$data['departments']  = array_column($departments, 'name');
+		$where['status']  =  "1";
+		$departments      = $this->login_model->getdepartment($where,1);
+		$departmentarray  = [];
+		$departments      = array_column($departments, 'name');
+
+		foreach ($departments as $departments) 
+		{
+			$departmentarray[$departments] = $departments;
+		}
+
+		$data['departments'] = $departmentarray;
 		$data['user'] = $this->session->userdata('user');
 		if($data['user'])
 		{
