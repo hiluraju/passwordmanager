@@ -18,7 +18,7 @@ class Password extends CI_Controller {
 	{
 		// echo "<pre>"; print_r($_POST); die;
 		$this->form_validation->set_rules('username','Username','trim|required');	
-		$this->form_validation->set_rules('email','Email Address','trim|required');	
+		$this->form_validation->set_rules('email','Email Address','trim|required|valid_email');	
 		$this->form_validation->set_rules('password','Password','trim|required');	
 		$this->form_validation->set_rules('erpusername','Erp Username','trim|required');	
 		$this->form_validation->set_rules('erppassword','Erp password','trim|required');	
@@ -72,24 +72,25 @@ class Password extends CI_Controller {
 		}
 	}
 
-	public function Editdepartment($id)
+	public function Editpassword($id)
 	{
-		$departmentdata = $this->department_model->getdepartmentdata($id);
-		if($departmentdata)
+		$this->load->library('encrypt');
+		$passworddata = $this->password_model->getpassworddata($id);
+		if($passworddata)
 		{
 			$data['user'] = $this->session->userdata('user');
-			$data['department'] = $departmentdata;
+			$data['password'] = $passworddata;
 			$this->load->view('common/header');
 			$this->load->view('layouts/topbar');
 			$this->load->view('layouts/nav',$data);
 			$this->load->view('layouts/topbar');
-			$this->load->view('layouts/editdepartment',$data);
+			$this->load->view('layouts/editpassword',$data);
 			$this->load->view('layouts/bottom');
 			$this->load->view('common/footer');
 		}
 	}
 
-	public function Updatedepartment($id)
+	public function Updatepassword($id)
 	{
 		$this->form_validation->set_rules('department','Department','trim|required');	
 

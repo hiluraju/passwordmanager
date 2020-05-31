@@ -32,7 +32,7 @@
 						<?php $data = array("class" => "btn btn-success btn-user btn-block text-center",
                                           "name"  => "update",
                                           "value" => "Update"); ?>
-                      <?php echo form_submit($data);?>
+            <?php echo form_submit($data);?>
 					</div>
 				</div>
 				<hr>

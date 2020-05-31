@@ -22,7 +22,7 @@
 					<?php $data = array("class"       => "form-control form-control-user",
                                         "name"        => "username", 
                                         "id"          => "username", 
-                                        "value"       => set_value('username'), 
+                                        "value"       => $this->encrypt->decode($password->username), 
                                         "placeholder" => "Username"); ?>
                     <?php echo form_input($data);?>
 				</div>
@@ -32,7 +32,7 @@
                                         "name"        => "email", 
                                         "id"          => "email", 
                                         "type"        => "email", 
-                                        "value"       => set_value('email'), 
+                                        "value"       => $this->encrypt->decode($password->email),  
                                         "placeholder" => "Email Address"); ?>
                     <?php echo form_input($data);?>
 				</div>
@@ -41,8 +41,7 @@
 					<?php $data = array("class"       => "form-control form-control-user",
                                         "name"        => "password", 
                                         "id"          => "password", 
-                                        // "type"        => "password",
-                                        "value"       => set_value('password'), 
+                                        "value"       => $this->encrypt->decode($password->password),
                                         "placeholder" => "Password"); ?>
                     <?php echo form_input($data);?>
 				</div>
@@ -51,7 +50,7 @@
 					<?php $data = array("class"       => "form-control form-control-user",
                                         "name"        => "erpusername", 
                                         "id"          => "erpusername",
-                                        "value"       => set_value('erpusername'), 
+                                        "value"       => $this->encrypt->decode($password->erpusername),
                                         "placeholder" => "Erp Username"); ?>
                     <?php echo form_input($data);?>
 				</div>
@@ -60,8 +59,7 @@
 					<?php $data = array("class"       => "form-control form-control-user",
                                         "name"        => "erppassword", 
                                         "id"          => "erppassword", 
-                                        // "type"        => "password", 
-                                        "value"       => set_value('erppassword'),
+                                        "value"       => $this->encrypt->decode($password->erppassword),
                                         "placeholder" => "Erp Password"); ?>
                     <?php echo form_input($data);?>
 				</div>
@@ -70,7 +68,7 @@
 					<?php $data = array("class"       => "form-control form-control-user",
                                         "name"        => "appusername", 
                                         "id"          => "appusername", 
-                                        "value"       => set_value('appusername'),
+                                        "value"       => $this->encrypt->decode($password->appusername),
                                         "placeholder" => "App Username"); ?>
                     <?php echo form_input($data);?>
 				</div>
@@ -79,22 +77,21 @@
 					<?php $data = array("class"       => "form-control form-control-user",
                                         "name"        => "apppassword", 
                                         "id"          => "apppassword", 
-                                        // "type"        => "password", 
-                                        "value"       => set_value('apppassword'),
+                                        "value"       => $this->encrypt->decode($password->apppassword),
                                         "placeholder" => "App Password"); ?>
                     <?php echo form_input($data);?>
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label class="black wei">Department</label>
 					<?php 
 						echo form_dropdown('departments', $departments,'','class="form-control" id="departments"');
 					?>
-				</div>
+				</div> -->
 
 				<div class="row">
 					<div class="col-sm-4 col-md-4 col-xs-4"></div>
 					<div class="col-sm-3 col-md-3 col-xs-3"> 
-						<button class="btn btn-success btn-user btn-block">Save</button>
+						<button class="btn btn-success btn-user btn-block">Update</button>
 					</div>
 				</div>	
 				</div>

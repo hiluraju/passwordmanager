@@ -15,10 +15,10 @@ class Password_model extends CI_Model
 		}
 	}
 
-	public function getdepartmentdata($id)
+	public function getpassworddata($id)
 	{
 		$this->db->where('id',$id);
-		$query = $this->db->get("departments");
+		$query = $this->db->get("passwords");
         if ($query) 
         {
         	return $query->row();
