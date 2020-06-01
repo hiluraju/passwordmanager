@@ -1,7 +1,7 @@
 <!-- Begin Page Content -->
 		<div class="col-sm-3 col-md-3 col-xs-3"></div>
 		<div class="col-sm-6 col-md-6 col-xs-6">
-			<h1 class="h4 black mb-4 wei text-center">ADD DETAILS</h1>
+			<h1 class="h4 black mb-4 wei text-center">EDIT DETAILS</h1>
 				<div class="red wei text-center">
 	                <?php if($this->session->flashdata('errors')): ?>
 	                <?php echo $this->session->flashdata('errors'); ?>
@@ -16,7 +16,7 @@
 	                <?php endif; ?>
 	            </div>
 				<?php $attributes = array("class"=>"user","id"=>"passwordform");?>
-                <?php echo form_open("password/addpassword",$attributes)?>
+                <?php echo form_open("password/Updatepassword/$password->id",$attributes)?>
 				<div class="form-group">
 					<label class="black wei">Username</label>
 					<?php $data = array("class"       => "form-control form-control-user",
@@ -81,12 +81,12 @@
                                         "placeholder" => "App Password"); ?>
                     <?php echo form_input($data);?>
 				</div>
-				<!-- <div class="form-group">
+				 <div class="form-group">
 					<label class="black wei">Department</label>
 					<?php 
-						echo form_dropdown('departments', $departments,'','class="form-control" id="departments"');
+						echo form_dropdown('departments', $departments,$currentdepartment,'class="form-control" id="departments"');
 					?>
-				</div> -->
+				</div> 
 
 				<div class="row">
 					<div class="col-sm-4 col-md-4 col-xs-4"></div>

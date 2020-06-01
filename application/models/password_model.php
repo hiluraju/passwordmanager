@@ -29,11 +29,33 @@ class Password_model extends CI_Model
         }
 	}
 
-	public function updatedepartment($updatedata,$id)
+	public function getdepartment($where,$departmentname="")
+	{
+		if($departmentname)
+		{
+        	$this->db->select("name");
+		}
+		else
+		{
+        	$this->db->select("id,name");			
+		}
+		$this->db->where($where);
+		$query = $this->db->get('departments');
+		if($query->num_rows() > 0) 
+		{
+			return $result = $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public function Updatepassword($updatedata,$id)
 	{
 		$this->db->where('id',$id);
 		$this->db->set($updatedata);
-		$update = $this->db->update('departments');
+		$update = $this->db->update('passwords');
 		if($update)
 		{
 			return true;

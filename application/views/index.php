@@ -11,7 +11,7 @@
               <div class="col-lg-12">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4"><b>PASSWORD <img class="w10" src="<?php echo base_url();?>lib/img/lock.png" alt="lock"> MANAGER</b> </h1>
+                    <h1 class="h4 text-gray-900 mb-4 fss"><b>PASSWORD <img class="w10" src="<?php echo base_url();?>lib/img/lock.png" alt="lock"> MANAGER</b> </h1>
                   </div>
                   <div class="text-center red wei">
                     <?php if($this->session->flashdata('errors')): ?>

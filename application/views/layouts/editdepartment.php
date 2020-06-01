@@ -2,7 +2,7 @@
 <div class="col-sm-4 col-md-4 col-xs-4"></div>
 	<div class="col-sm-6 col-md-6 col-xs-6">
 			<h1 class="h4 black mb-4 wei">EDIT DEPARTMENT</h1>
-			<div class="red wei">
+			<div class="red wei text-center">
                 <?php if($this->session->flashdata('errors')): ?>
                 <?php echo $this->session->flashdata('errors'); ?>
                 <?php endif; ?>
@@ -10,7 +10,7 @@
                 <?php echo $this->session->flashdata('departmentfailed'); ?>
                 <?php endif; ?>
             </div>
-            <div class="green wei">
+            <div class="green wei text-center">
                 <?php if($this->session->flashdata('departmentsuccess')): ?>
                 <?php echo $this->session->flashdata('departmentsuccess'); ?>
                 <?php endif; ?>
