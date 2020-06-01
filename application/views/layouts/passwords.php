@@ -1,6 +1,20 @@
 <!-- Begin Page Content -->
         <div class="container-fluid">
 
+          <div class="red wei text-center">
+                <?php if($this->session->flashdata('errors')): ?>
+                <?php echo $this->session->flashdata('errors'); ?>
+                <?php endif; ?>
+                <?php if($this->session->flashdata('passwordfailed')): ?>
+                <?php echo $this->session->flashdata('passwordfailed'); ?>
+                <?php endif; ?>
+            </div>
+            <div class="green wei text-center">
+                <?php if($this->session->flashdata('passwordsuccess')): ?>
+                <?php echo $this->session->flashdata('passwordsuccess'); ?>
+                <?php endif; ?>
+            </div>
+
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -42,10 +56,8 @@
                                 <button type="button" class="btn btn-sm btn-primary">Edit</button>        
                               </a>
                           </div>
-                          <div class="col-md-6 custom">
-                            <a href="<?php echo base_url();?>Password/Deletepassword/<?php echo $passwords['id']; ?>">
-                              <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                            </a>
+                          <div class="col-md-6 custom">   
+                              <button type="button" class="btn btn-sm btn-danger deletebutton" id="<?php echo $passwords['id']; ?>">Delete</button>
                           </div>
                       </div>
                       </td>
@@ -59,3 +71,38 @@
 
         </div>
         <!-- /.container-fluid -->
+
+<!-- Delete Modal-->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content black">
+        <div class="modal-header">
+          <h5 class="modal-title wei" id="exampleModalLabel">Are you Sure?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Click "Delete" button to Delete the Details</div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
+          <?php echo form_open("Password/Deletepassword")?>
+          <input type="hidden" name="deletepassword" id="deletepassword">
+          <?php $data = array("class" => "btn btn-danger",
+                                          "name"  => "submit",
+                                          "value" => "Delete"); ?>
+          <?php echo form_submit($data);?>
+          <?php echo form_close(); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Delete Modal-->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+$(".deletebutton").click(function()
+{
+  let passwordid = $(this).attr('id');
+  $("#deletepassword").val(passwordid);
+  $('#deleteModal').modal('show');
+});
+</script>

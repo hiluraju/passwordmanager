@@ -66,10 +66,10 @@ class Password_model extends CI_Model
 		}
 	}
 
-	public function deletedepartment($id)
+	public function Deletepassword($id)
 	{
 		$this->db->where('id',$id);
-		$delete = $this->db->delete('departments');
+		$delete = $this->db->delete('passwords');
 		if($delete)
 		{
 			return true;

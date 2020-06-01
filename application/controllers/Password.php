@@ -149,28 +149,28 @@ class Password extends CI_Controller {
 			}
 			else
 			{
-				$passwordtfailed = "<p> Details Updation Failed! </p>";
+				$passwordfailed = "<p> Details Updation Failed! </p>";
 				$this->session->set_flashdata('passwordsuccess',$passwordsuccess);
 				redirect('Password/Editpassword/'.$id);
 			}
 		}	
 	}
 
-	public function Deletedepartment()
+	public function Deletepassword()
 	{
-		$departmentid     = $this->input->post('deletedepartment');
-		$deletedepartment = $this->department_model->deletedepartment($departmentid);
-		if($deletedepartment)
+		$passwordid     = $this->input->post('deletepassword');
+		$deletepassword = $this->password_model->deletepassword($passwordid);
+		if($deletepassword)
 		{
-			$departmentsuccess = "<p> Department Deleted Successfully </p>";
-			$this->session->set_flashdata('departmentsuccess',$departmentsuccess);
-			redirect('home/department');
+			$passwordsuccess = "<p> Details Deleted Successfully </p>";
+			$this->session->set_flashdata('passwordsuccess',$passwordsuccess);
+			redirect('home/admin');
 		}
 		else
 		{
-			$departmentfailed = "<p> Department Deletion Failed! </p>";
-			$this->session->set_flashdata('departmentfailed',$departmentfailed);
-			redirect('home/department');
+			$passwordfailed = "<p> Details Deletion Failed! </p>";
+			$this->session->set_flashdata('passwordfailed',$passwordfailed);
+			redirect('home/admin');
 		}
 	}
 
