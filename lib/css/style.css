@@ -43,3 +43,16 @@
 {
 	font-family: sans-serif !important;
 }
+.white
+{
+  color: white !important;
+}
+.mt20
+{
+  margin-top: 20% !important;
+}
+.backgroundwhite
+{
+  height: 2px !important;
+  background-color: white !important;
+}
