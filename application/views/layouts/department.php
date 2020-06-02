@@ -25,6 +25,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
+                <?php if($departments) { ?>
                 <table class="table table-bordered fcb" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
@@ -62,6 +63,11 @@
                   <?php $counter++; } ?>
                   </tbody>
                 </table>
+                <?php } else{ ?>
+                <div class="alert alert-danger text-center">
+                  <strong class="black">No Data Found!</strong> 
+                </div>
+              <?php } ?>
               </div>
             </div>
           </div>
