@@ -106,6 +106,7 @@ class Home extends CI_Controller {
 
 	public function wifi()
 	{		
+		$this->load->library('encrypt');
 		$data['user'] = $this->session->userdata('user');
 		if($data['user'])
 		{

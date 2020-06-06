@@ -6,13 +6,13 @@
                 <?php if($this->session->flashdata('errors')): ?>
                 <?php echo $this->session->flashdata('errors'); ?>
                 <?php endif; ?>
-                <?php if($this->session->flashdata('departmentfailed')): ?>
-                <?php echo $this->session->flashdata('departmentfailed'); ?>
+                <?php if($this->session->flashdata('wififailed')): ?>
+                <?php echo $this->session->flashdata('wififailed'); ?>
                 <?php endif; ?>
             </div>
             <div class="green wei text-center">
-                <?php if($this->session->flashdata('departmentsuccess')): ?>
-                <?php echo $this->session->flashdata('departmentsuccess'); ?>
+                <?php if($this->session->flashdata('wifisuccess')): ?>
+                <?php echo $this->session->flashdata('wifisuccess'); ?>
                 <?php endif; ?>
             </div>
 
@@ -41,11 +41,11 @@
                       ?>
                     <tr>                      
                       <td><?php echo $wifi['name']; ?></td>
-                      <td><?php echo $wifi['password']; ?></td>
+                      <td><?php echo $this->encrypt->decode($wifi['password']); ?></td>
                       <td>
                         <div class="btn-group" role="group">
                           <div class="col-md-6 custom">
-                            <a href="<?php echo base_url();?>Department/Editwifi/<?php echo $wifi['id']; ?>">  
+                            <a href="<?php echo base_url();?>Wifi/Editwifi/<?php echo $wifi['id']; ?>">  
                               <button type="button" class="btn btn-sm btn-primary">Edit</button>        
                             </a>
                           </div>
@@ -84,7 +84,7 @@
         <div class="modal-body">Click "Delete" button to Delete the Department</div>
         <div class="modal-footer">
           <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
-          <?php echo form_open("Department/Deletewifi")?>
+          <?php echo form_open("Wifi/Deletewifi")?>
           <input type="hidden" name="deletedepartment" id="deletedepartment">
           <?php $data = array("class" => "btn btn-danger",
                                           "name"  => "submit",
