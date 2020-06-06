@@ -54,5 +54,20 @@ class Login_model extends CI_Model
 			return false;
 		}
 	}
+
+	public function getwifi()
+	{
+
+        $this->db->select("*");
+		$query = $this->db->get('wifi');
+		if($query->num_rows() > 0) 
+		{
+			return $result = $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 

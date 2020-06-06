@@ -104,6 +104,29 @@ class Home extends CI_Controller {
 		}	
 	}
 
+	public function wifi()
+	{		
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$data['wifi']  = $this->login_model->getwifi();
+
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/wifi',$data);
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}
+		else
+		{
+			$loginerror = array("errors" => "<p> Login Failed </p>");
+			$this->session->set_flashdata($loginerror);
+			redirect('home/index'); 
+		}	
+	}
+
 	public function addpassword()
 	{
 		$where['status']  =  "1";
@@ -144,6 +167,25 @@ class Home extends CI_Controller {
 			$this->load->view('layouts/nav',$data);
 			$this->load->view('layouts/topbar');
 			$this->load->view('layouts/adddepartment');
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}	
+		else
+		{
+			redirect('home/index'); 
+		}
+	}
+
+	public function addwifi()
+	{
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/addwifi',$data);
 			$this->load->view('layouts/bottom');
 			$this->load->view('common/footer');
 		}	

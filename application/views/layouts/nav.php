@@ -22,6 +22,20 @@
       <hr class="sidebar-divider">
 
       <li class="nav-item active">
+        <a class="nav-link" href="<?php echo base_url();?>home/wifi">
+          <i class="fas fa-wifi"></i>
+          <span>Manage Wifi</span></a>
+      </li>
+      <hr class="sidebar-divider">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="<?php echo base_url();?>home/extensions">
+          <i class="fa fa-phone"></i>
+          <span>Manage Extensions</span></a>
+      </li>
+      <hr class="sidebar-divider">
+
+      <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url();?>home/department">
           <i class="fas fa-users-cog"></i>
           <span>Manage Departments</span></a>
