@@ -150,6 +150,41 @@ class Home extends CI_Controller {
 		}	
 	}
 
+	public function anydesk()
+	{
+		$this->load->library('encrypt');
+		$where['status']  =  "1";
+		$departments      = $this->login_model->getdepartment($where,1);
+		$departmentarray  = [];
+		$departments      = array_column($departments, 'name');
+
+		foreach ($departments as $departments) 
+		{
+			$departmentarray[$departments] = $departments;
+		}
+
+		$data['department'] = $departmentarray;
+		$data['anydesk']    = $this->login_model->getanydesk();
+
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/anydesk',$data);
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}
+		else
+		{
+			$loginerror = array("errors" => "<p> Login Failed </p>");
+			$this->session->set_flashdata($loginerror);
+			redirect('home/index'); 
+		}	
+	}
+
 	public function addpassword()
 	{
 		$where['status']  =  "1";
@@ -239,6 +274,36 @@ class Home extends CI_Controller {
 			$this->load->view('layouts/nav',$data);
 			$this->load->view('layouts/topbar');
 			$this->load->view('layouts/addextension',$data);
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}	
+		else
+		{
+			redirect('home/addextension'); 
+		}
+	}
+
+	public function addanydesk()
+	{
+		$where['status']  =  "1";
+		$departments      = $this->login_model->getdepartment($where,1);
+		$departmentarray  = [];
+		$departments      = array_column($departments, 'name');
+
+		foreach ($departments as $departments) 
+		{
+			$departmentarray[$departments] = $departments;
+		}
+
+		$data['departments'] = $departmentarray;
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/addanydesk',$data);
 			$this->load->view('layouts/bottom');
 			$this->load->view('common/footer');
 		}	

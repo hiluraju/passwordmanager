@@ -86,5 +86,20 @@ class Login_model extends CI_Model
 			return false;
 		}
 	}
+
+	public function getanydesk()
+	{
+
+        $this->db->select("*");
+		$query = $this->db->get('desk');
+		if($query->num_rows() > 0) 
+		{
+			return $result = $query->result_array();
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
 
