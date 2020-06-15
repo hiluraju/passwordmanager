@@ -19,7 +19,7 @@
                 <?php echo form_open("password/addpassword",$attributes)?>
 				<div class="form-group">
 					<label class="black wei">Username</label>
-					<?php $data = array("class"       => "form-control form-control-user",
+					<?php $data = array("class"       => "form-control form-control-user black",
                                         "name"        => "username", 
                                         "id"          => "username", 
                                         "value"       => set_value('username'), 
@@ -28,7 +28,7 @@
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">Email Address</label>
-					<?php $data = array("class"       => "form-control form-control-user",
+					<?php $data = array("class"       => "form-control form-control-user black",
                                         "name"        => "email", 
                                         "id"          => "email", 
                                         "type"        => "email", 
@@ -38,7 +38,7 @@
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">Password</label>
-					<?php $data = array("class"       => "form-control form-control-user",
+					<?php $data = array("class"       => "form-control form-control-user black",
                                         "name"        => "password", 
                                         "id"          => "password", 
                                         // "type"        => "password",
@@ -48,7 +48,7 @@
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">Erp Username</label>
-					<?php $data = array("class"       => "form-control form-control-user",
+					<?php $data = array("class"       => "form-control form-control-user black",
                                         "name"        => "erpusername", 
                                         "id"          => "erpusername",
                                         "value"       => set_value('erpusername'), 
@@ -57,7 +57,7 @@
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">Erp Password</label>
-					<?php $data = array("class"       => "form-control form-control-user",
+					<?php $data = array("class"       => "form-control form-control-user black",
                                         "name"        => "erppassword", 
                                         "id"          => "erppassword", 
                                         // "type"        => "password", 
@@ -67,7 +67,7 @@
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">App Username</label>
-					<?php $data = array("class"       => "form-control form-control-user",
+					<?php $data = array("class"       => "form-control form-control-user black",
                                         "name"        => "appusername", 
                                         "id"          => "appusername", 
                                         "value"       => set_value('appusername'),
@@ -76,7 +76,7 @@
 				</div>
 				<div class="form-group">
 					<label class="black wei" for="email">App Password</label>
-					<?php $data = array("class"       => "form-control form-control-user",
+					<?php $data = array("class"       => "form-control form-control-user black",
                                         "name"        => "apppassword", 
                                         "id"          => "apppassword", 
                                         // "type"        => "password", 
@@ -87,7 +87,7 @@
 				<div class="form-group">
 					<label class="black wei">Department</label>
 					<?php 
-						echo form_dropdown('departments', $departments,'','class="form-control" id="departments"');
+						echo form_dropdown('departments', $departments,'','class="form-control black" id="departments"');
 					?>
 				</div>
 

@@ -35,6 +35,18 @@
       </li>
       <hr class="sidebar-divider">
 
+      
+
+      <li class="nav-item active">
+        <a class="nav-link" href="<?php echo base_url();?>home/anydesk">
+         <i class="fas fa-laptop"></i>
+          <span>Manage AnyDesk</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url();?>home/department">
           <i class="fas fa-users-cog"></i>
@@ -43,7 +55,6 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
-
 
     </ul>
     <!-- End of Sidebar -->

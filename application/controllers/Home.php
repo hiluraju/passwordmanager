@@ -128,6 +128,28 @@ class Home extends CI_Controller {
 		}	
 	}
 
+	public function extensions()
+	{		
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$data['extension']  = $this->login_model->getextensions();
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/extensions',$data);
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}
+		else
+		{
+			$loginerror = array("errors" => "<p> Login Failed </p>");
+			$this->session->set_flashdata($loginerror);
+			redirect('home/index'); 
+		}	
+	}
+
 	public function addpassword()
 	{
 		$where['status']  =  "1";
@@ -154,7 +176,7 @@ class Home extends CI_Controller {
 		}	
 		else
 		{
-			redirect('home/index'); 
+			redirect('home/addpassword'); 
 		}
 	}
 
@@ -173,7 +195,7 @@ class Home extends CI_Controller {
 		}	
 		else
 		{
-			redirect('home/index'); 
+			redirect('home/adddepartment'); 
 		}
 	}
 
@@ -192,7 +214,38 @@ class Home extends CI_Controller {
 		}	
 		else
 		{
-			redirect('home/index'); 
+			redirect('home/addwifi'); 
 		}
 	}
+
+	public function addextension()
+	{
+		$where['status']  =  "1";
+		$departments      = $this->login_model->getdepartment($where,1);
+		$departmentarray  = [];
+		$departments      = array_column($departments, 'name');
+
+		foreach ($departments as $departments) 
+		{
+			$departmentarray[$departments] = $departments;
+		}
+
+		$data['departments'] = $departmentarray;
+		$data['user'] = $this->session->userdata('user');
+		if($data['user'])
+		{
+			$this->load->view('common/header');
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/nav',$data);
+			$this->load->view('layouts/topbar');
+			$this->load->view('layouts/addextension',$data);
+			$this->load->view('layouts/bottom');
+			$this->load->view('common/footer');
+		}	
+		else
+		{
+			redirect('home/addextension'); 
+		}
+	}
+
 }

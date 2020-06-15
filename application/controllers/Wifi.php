@@ -105,21 +105,21 @@ class Wifi extends CI_Controller {
 		}	
 	}
 
-	public function Deletepassword()
+	public function Deletewifi()
 	{
-		$passwordid     = $this->input->post('deletepassword');
-		$deletepassword = $this->wifi_model->deletepassword($passwordid);
-		if($deletepassword)
+		$wifiid     = $this->input->post('deletewifi');
+		$deletewifi = $this->wifi_model->deletewifi($wifiid);
+		if($deletewifi)
 		{
-			$passwordsuccess = "<p> Details Deleted Successfully </p>";
-			$this->session->set_flashdata('passwordsuccess',$passwordsuccess);
-			redirect('home/admin');
+			$wifisuccess = "<p>Wifi Details Deleted Successfully </p>";
+			$this->session->set_flashdata('wifisuccess',$wifisuccess);
+			redirect('home/wifi');
 		}
 		else
 		{
-			$passwordfailed = "<p> Details Deletion Failed! </p>";
-			$this->session->set_flashdata('passwordfailed',$passwordfailed);
-			redirect('home/admin');
+			$wififailed = "<p>Wifi Details Deletion Failed! </p>";
+			$this->session->set_flashdata('wififailed',$wififailed);
+			redirect('home/wifi');
 		}
 	}
 

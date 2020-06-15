@@ -19,7 +19,7 @@
                   <?php echo form_open("department/Updatedepartment/$department->id",$attributes)?>
 				<div class="form-group">
 					<label class="black wei" for="email">Department</label>
-					<?php $data = array("class"       => "form-control form-control-user",
+					<?php $data = array("class"       => "form-control form-control-user black",
                                         "name"        => "department", 
                                         "id"          => "department", 
                                         "value"       => $department->name, 

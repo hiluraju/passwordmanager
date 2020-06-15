@@ -6,52 +6,54 @@
                 <?php if($this->session->flashdata('errors')): ?>
                 <?php echo $this->session->flashdata('errors'); ?>
                 <?php endif; ?>
-                <?php if($this->session->flashdata('wififailed')): ?>
-                <?php echo $this->session->flashdata('wififailed'); ?>
+                <?php if($this->session->flashdata('extensionfailed')): ?>
+                <?php echo $this->session->flashdata('extensionfailed'); ?>
                 <?php endif; ?>
             </div>
             <div class="green wei text-center">
-                <?php if($this->session->flashdata('wifisuccess')): ?>
-                <?php echo $this->session->flashdata('wifisuccess'); ?>
+                <?php if($this->session->flashdata('extensionsuccess')): ?>
+                <?php echo $this->session->flashdata('extensionsuccess'); ?>
                 <?php endif; ?>
             </div>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <a class="nav-link" href="<?php echo base_url();?>home/addwifi">
+              <a class="nav-link" href="<?php echo base_url();?>home/addextension">
               <button class="btn btn-success right">Add<i class="fas fa-user-plus ml10"></i></button>
               </a>
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <?php if($wifi) { ?>
+                <?php if($extension) { ?>
                 <table class="table table-bordered fcb" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>WIFI NAME</th>
-                      <th>PASSWORD</th>
+                      <th>NAME</th>
+                      <th>DEPARTMENT</th>
+                      <th>EXTENSIONS</th>
                       <th>ACTIONS</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
-                      foreach ($wifi as $wifi) 
+                      foreach ($extension as $extension) 
                       {
                       ?>
                     <tr>                      
-                      <td><?php echo $wifi['name']; ?></td>
-                      <td><?php echo $this->encrypt->decode($wifi['password']); ?></td>
+                      <td><?php echo $extension['name']; ?></td>
+                      <td><?php echo $extension['department']; ?></td>
+                      <td><?php echo $extension['number']; ?></td>
                       <td>
                         <div class="btn-group" role="group">
                           <div class="col-md-6 custom">
-                            <a href="<?php echo base_url();?>Wifi/Editwifi/<?php echo $wifi['id']; ?>">  
+                            <a href="<?php echo base_url();?>Extension/Editextension/<?php echo $extension['id']; ?>">  
                               <button type="button" class="btn btn-sm btn-primary">Edit</button>        
                             </a>
                           </div>
                           <div class="col-md-6 custom">
                             <a data-toggle="modal">
-                              <button type="button" class="btn btn-sm btn-danger deletebutton" id="<?php echo $wifi['id']; ?>">Delete</button>
+                              <button type="button" class="btn btn-sm btn-danger deletebutton" id="<?php echo $extension['id']; ?>">Delete</button>
                             </a>
                           </div>
                       </div>
@@ -81,11 +83,11 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Click "Delete" button to Delete the Wifi Details</div>
+        <div class="modal-body">Click "Delete" button to Delete the Extensions Details</div>
         <div class="modal-footer">
           <button class="btn btn-primary" type="button" data-dismiss="modal">Cancel</button>
-          <?php echo form_open("Wifi/Deletewifi")?>
-          <input type="hidden" name="deletewifi" id="deletewifi">
+          <?php echo form_open("Extension/Deleteextension")?>
+          <input type="hidden" name="deleteextension" id="deleteextension">
           <?php $data = array("class" => "btn btn-danger",
                                           "name"  => "submit",
                                           "value" => "Delete"); ?>
@@ -100,8 +102,8 @@
 <script type="text/javascript">
 $(".deletebutton").click(function()
 {
-  let wifiid = $(this).attr('id');
-  $("#deletewifi").val(wifiid);
+  let extensionid = $(this).attr('id');
+  $("#deleteextension").val(extensionid);
   $('#deleteModal').modal('show');
 });
 </script>
